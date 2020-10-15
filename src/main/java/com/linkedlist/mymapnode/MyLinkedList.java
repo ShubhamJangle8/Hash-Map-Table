@@ -47,4 +47,8 @@ public class MyLinkedList<K> {
 			tail = myNode;
 		}
 	}
+	
+	public String toString() {
+		return "My Linked list node{ " + head + "}";
+	}
 }

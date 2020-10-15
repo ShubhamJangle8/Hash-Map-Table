@@ -26,7 +26,7 @@ public class MyHashMap<K, V> {
 	}
 
 	public String toString() {
-		return "MyHashMapNodes { " + myLinkedList + " }";
+		return "MyHashMapNodes{ " + myLinkedList + "}";
 	}
 	
 	

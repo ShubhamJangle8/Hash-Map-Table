@@ -2,9 +2,9 @@ package com.linkedlist.mymapnode;
 
 public class MyHashMap<K, V> {
 	MyLinkedList<K> myLinkedList;
-	
+
 	public MyHashMap() {
-		myLinkedList = new MyLinkedList<>(); 
+		myLinkedList = new MyLinkedList<>();
 	}
 
 	public V get(K key) {
@@ -16,10 +16,10 @@ public class MyHashMap<K, V> {
 	public void add(K key, V value) {
 		@SuppressWarnings("unchecked")
 		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) this.myLinkedList.searchNode(key);
-		if(myMapNode == null) {
+		if (myMapNode == null) {
 			myMapNode = new MyMapNode<>(key, value);
 			this.myLinkedList.append(myMapNode);
-		}
+		} 
 		else {
 			myMapNode.setValue(value);
 		}
@@ -28,6 +28,5 @@ public class MyHashMap<K, V> {
 	public String toString() {
 		return "MyHashMapNodes{ " + myLinkedList + "}";
 	}
-	
-	
+
 }

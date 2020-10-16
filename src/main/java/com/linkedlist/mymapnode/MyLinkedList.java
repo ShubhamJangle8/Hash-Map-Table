@@ -48,6 +48,50 @@ public class MyLinkedList<K> {
 		}
 	}
 	
+	public INode<K> popFindingKey(K key) {
+		INode<K> tempNode = head;
+		INode<K> prevNode = null;
+		if (this.head == null) {
+			return null;
+		}
+		if (tempNode.getNext() == null) {
+			return null;
+		} 
+		else if (tempNode.getKey() == key) {
+			this.head = tempNode.getNext();
+			return tempNode;
+		}
+		else {
+			while (tempNode != null && tempNode.getKey() != key) {
+				prevNode = tempNode;
+				tempNode = tempNode.getNext();
+			}
+			prevNode.setNext(tempNode.getNext());
+			return tempNode;
+		}
+	}
+	
+	public INode<K> delete(K key) {
+		INode<K> temp = head;
+		INode<K> prev = head;
+		if (head.getKey().equals(key)) {
+			head = head.getNext();
+		} else {
+			while (temp.getNext() != null) {
+				if (temp.getKey().equals(key))
+					break;
+				prev = temp;
+				temp = temp.getNext();
+			}
+			if (tail.getKey().equals(key)) {
+				tail = prev;
+				tail.setNext(null);
+			}
+			prev.setNext(temp.getNext());
+		}
+		return temp;
+	}
+	
 	public String toString() {
 		return "My Linked list node{ " + head + "}";
 	}

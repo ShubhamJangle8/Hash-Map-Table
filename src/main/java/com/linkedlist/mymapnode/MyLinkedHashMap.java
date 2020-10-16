@@ -42,9 +42,22 @@ public class MyLinkedHashMap<K, V> {
 		if (myMapNode == null) {
 			myMapNode = new MyMapNode<>(key, value);
 			myLinkedList.append(myMapNode);
-		} 
-		else {
+		} else {
 			myMapNode.setValue(value);
+		}
+	}
+
+	public boolean remove(K key) {
+		int index = this.getBucketIndex(key);
+		MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
+		if (myLinkedList == null) {
+			System.out.println("Nothing present to remove");
+		}
+		if (myLinkedList == null) {
+			return false;
+		} else {
+			myLinkedList.delete(key);
+			return true;
 		}
 	}
 
